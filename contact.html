@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Piyush Yadav</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center; /* Keep text centered within each paragraph */
+    }
+
+    .contact-links p {
+      margin: 10px 0;
+      font-size: 1.2em;
+    }
+
+    .contact-links a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    .contact-links i {
+      margin-right: 10px;
+      font-size: 1.5em;
+      vertical-align: middle;
+    }
+
+    body.dark .contact-links {
+      background-color: rgba(30, 30, 30, 0.8);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark .contact-links a {
+      color: var(--text-color-dark);
+    }
+
+    /* Center the "Get In Touch" heading */
+    .section-title {
+      text-align: center; /* Added this line */
+      font-size: 2.5em;
+      color: var(--text-color);
+      margin-bottom: 30px;
+    }
+
+    body.dark .section-title {
+      color: var(--text-color-dark);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="lux-header">
+    <div class="container flex-between">
+      <h1 class="fade-in">Contact Me</h1>
+      <nav class="nav-links slide-in-right">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="container glass-card fade-in">
+      <h2 class="section-title">Get In Touch</h2>
+
+      <div class="contact-links">
+        <p>
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:2k22.ec.2211989@gmail.com">2k22.ec.2211989@gmail.com</a>
+        </p>
+        <p>
+          <i class="fab fa-linkedin"></i>
+          <a href="https://linkedin.com/in/piyush-yadav-355376260" target="_blank">LinkedIn</a>
+        </p>
+        <p>
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/piyush-ydv141" target="_blank">GitHub</a>
+        </p>
+        <p>
+          <i class="fas fa-phone"></i>
+          <a href="tel:+918887583014">8887583014</a>            
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
+
