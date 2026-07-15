@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     "Web Developer",
     "Problem Solver",
     "Tech Enthusiast"
-    "Backend Developer"
   ];
 
   const typingElement = document.getElementById("typing");
