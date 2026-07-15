@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
   =============================== */
 
   const words = [
-    "Software Developer"
-    "Full Stack Developer"
-    "Python Developer"
+    "Software Engineer",
+    "Web Developer",
+    "Problem Solver",
+    "Tech Enthusiast"
     "Backend Developer"
-    "Problem Solver"
   ];
 
   const typingElement = document.getElementById("typing");
