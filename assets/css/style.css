@@ -1,6 +1,6 @@
-/* ============================= */
-/* RESET */
-/* ============================= */
+/* ========================================== */
+/* 1. RESET & BASE STYLES                     */
+/* ========================================== */
 * {
   margin: 0;
   padding: 0;
@@ -12,15 +12,16 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: #0a0f1f;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #0a0f1f;
   color: #e6f1ff;
+  line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* ============================= */
-/* SCROLL PROGRESS BAR */
-/* ============================= */
+/* ========================================== */
+/* 2. SCROLL PROGRESS BAR                     */
+/* ========================================== */
 #progress-bar {
   position: fixed;
   top: 0;
@@ -29,25 +30,29 @@ body {
   width: 0%;
   background: linear-gradient(90deg, #00ffff, #7c5cff);
   z-index: 2000;
+  transition: width 0.1s ease-out;
 }
 
-/* ============================= */
-/* NAVBAR */
-/* ============================= */
+/* ========================================== */
+/* 3. NAVBAR                                  */
+/* ========================================== */
 .navbar {
   position: fixed;
   width: 100%;
   top: 0;
   padding: 18px 0;
-  background: rgba(10, 15, 31, 0.95);
-  border-bottom: 1px solid rgba(0,255,255,0.1);
+  background: rgba(10, 15, 31, 0.9);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
+  transition: all 0.3s ease;
 }
 
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .nav-content {
@@ -60,13 +65,15 @@ body {
   font-size: 22px;
   font-weight: 800;
   color: #00ffff;
+  letter-spacing: -0.5px;
 }
 
 nav a {
   text-decoration: none;
   color: #e6f1ff;
   margin-left: 25px;
-  transition: 0.3s;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -86,11 +93,19 @@ nav a:hover {
   color: #00ffff;
   font-size: 18px;
   cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
 }
 
-/* ============================= */
-/* HERO SECTION */
-/* ============================= */
+#theme-toggle:hover,
+.hamburger:hover {
+  background: rgba(0, 255, 255, 0.1);
+}
+
+/* ========================================== */
+/* 4. HERO SECTION                            */
+/* ========================================== */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -102,22 +117,63 @@ nav a:hover {
   overflow: hidden;
 }
 
-/* ============================= */
-/* STATS SECTION */
-/* ============================= */
+#bg-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
 
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 850px;
+}
+
+.hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #ffffff;
+  letter-spacing: -1px;
+}
+
+#typing::after {
+  content: "|";
+  animation: blink 1s infinite;
+  margin-left: 5px;
+  color: #00ffff;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero p {
+  font-size: 18px;
+  color: #a0aec0;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* ========================================== */
+/* 5. STATS SECTION                           */
+/* ========================================== */
 .stats-section {
   padding: 80px 0;
-  background: linear-gradient(180deg, rgba(0,255,255,0.05), transparent);
+  background: linear-gradient(180deg, rgba(0, 255, 255, 0.05), transparent);
 }
 
 .stats-container {
   display: flex;
-  justify-content: center;   /* centers horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 60px;                 /* spacing between stats */
+  gap: 60px;
   text-align: center;
-  flex-wrap: wrap;           /* responsive */
+  flex-wrap: wrap;
 }
 
 .stat-card {
@@ -137,54 +193,9 @@ nav a:hover {
   letter-spacing: 0.5px;
 }
 
-/* Canvas background */
-#bg-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 850px;
-}
-
-/* Heading */
-.hero h1 {
-  font-size: 52px;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-/* Typing text */
-#typing::after {
-  content: "|";
-  animation: blink 1s infinite;
-  margin-left: 5px;
-}
-
-@keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Paragraph */
-.hero p {
-  font-size: 18px;
-  color: #a0aec0;
-  line-height: 1.6;
-  margin-bottom: 30px;
-}
-
-/* ============================= */
-/* BUTTONS */
-/* ============================= */
+/* ========================================== */
+/* 6. BUTTONS                                 */
+/* ========================================== */
 .cta {
   display: flex;
   flex-wrap: wrap;
@@ -199,12 +210,14 @@ nav a:hover {
   color: #0a0f1f;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(0,255,255,0.6);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
 }
 
 .btn-secondary {
@@ -213,18 +226,20 @@ nav a:hover {
   border: 1px solid #00ffff;
   color: #00ffff;
   text-decoration: none;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  display: inline-block;
+  background: transparent;
 }
 
 .btn-secondary:hover {
   background: #00ffff;
   color: #0a0f1f;
-  box-shadow: 0 0 15px rgba(0,255,255,0.5);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
-/* ============================= */
-/* SECTIONS */
-/* ============================= */
+/* ========================================== */
+/* 7. GENERAL SECTIONS & TITLES               */
+/* ========================================== */
 .section {
   padding: 100px 0;
 }
@@ -232,18 +247,28 @@ nav a:hover {
 .section h2 {
   text-align: center;
   font-size: 32px;
+  font-weight: 800;
   margin-bottom: 50px;
   color: #00ffff;
+  letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-top: -35px;
+  margin-bottom: 45px;
 }
 
 .narrow {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-/* ============================= */
-/* GRID CARDS */
-/* ============================= */
+/* ========================================== */
+/* 8. GENERAL GRID & BASIC CARDS              */
+/* ========================================== */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -256,37 +281,376 @@ nav a:hover {
   text-align: center;
   text-decoration: none;
   color: #e6f1ff;
-  border: 1px solid rgba(0,255,255,0.2);
-  background: rgba(255,255,255,0.02);
-  transition: 0.4s;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.4s ease;
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
   border-color: #00ffff;
 }
 
-/* ============================= */
-/* TESTIMONIAL */
-/* ============================= */
-.testimonial {
-  background: rgba(255,255,255,0.02);
-  padding: 30px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,255,255,0.1);
-  text-align: center;
+/* ========================================== */
+/* 9. FEATURED PROJECTS GRID & CARDS          */
+/* ========================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 30px;
 }
 
-.testimonial span {
-  display: block;
-  margin-top: 15px;
+.project-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 255, 255, 0.15), 0 0 20px rgba(124, 92, 255, 0.1);
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.project-description {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: rgba(0, 255, 255, 0.08);
   color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  letter-spacing: 0.02em;
 }
 
-/* ============================= */
-/* CONTACT */
-/* ============================= */
+.card-footer {
+  margin-top: auto;
+}
+
+.btn-project {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #00ffff;
+  background: transparent;
+  border: 1px solid #00ffff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-project:hover {
+  background: #00ffff;
+  color: #0a0f1f;
+  box-shadow: 0 0 18px rgba(0, 255, 255, 0.4);
+}
+
+/* ========================================== */
+/* 10. CERTIFICATES & ACHIEVEMENTS SECTION    */
+/* ========================================== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.cert-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 0 12px 30px rgba(0, 255, 255, 0.15), 0 0 20px rgba(124, 92, 255, 0.1);
+}
+
+/* Featured Patent Highlight Styling */
+.cert-card.patent-highlight {
+  border-color: rgba(124, 92, 255, 0.4);
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.8), rgba(124, 92, 255, 0.12));
+}
+
+.cert-card.patent-highlight:hover {
+  border-color: #7c5cff;
+  box-shadow: 0 12px 30px rgba(124, 92, 255, 0.25);
+}
+
+.cert-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.cert-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  color: #00ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.patent-highlight .cert-icon {
+  background: rgba(124, 92, 255, 0.15);
+  border-color: rgba(124, 92, 255, 0.4);
+  color: #a78bfa;
+}
+
+.cert-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(0, 255, 255, 0.08);
+  color: #00ffff;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  letter-spacing: 0.02em;
+}
+
+.patent-badge {
+  background: rgba(124, 92, 255, 0.18);
+  color: #a78bfa;
+  border-color: rgba(124, 92, 255, 0.35);
+}
+
+.cert-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.cert-issuer {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00ffff;
+  margin-bottom: 12px;
+}
+
+.patent-highlight .cert-issuer {
+  color: #a78bfa;
+}
+
+.cert-desc {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  line-height: 1.55;
+}
+
+/* ========================================== */
+/* 11. MODERN TESTIMONIALS SECTION            */
+/* ========================================== */
+.testimonial-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 40px;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 255, 255, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 255, 255, 0.1);
+}
+
+.quote-mark {
+  font-size: 60px;
+  line-height: 1;
+  color: #00ffff;
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  margin-bottom: -15px;
+}
+
+.testimonial-text {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 20px;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00ffff, #7c5cff);
+  color: #0a0f1f;
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.author-info h4 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.author-info span {
+  color: #00ffff;
+  font-size: 0.85rem;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ========================================== */
+/* 12. MODERN CONTACT SECTION                 */
+/* ========================================== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.contact-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.35s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: #00ffff;
+  box-shadow: 0 12px 30px rgba(0, 255, 255, 0.15);
+}
+
+.contact-icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  color: #00ffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.contact-card h3 {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.contact-card p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin-bottom: 22px;
+  word-break: break-all;
+}
+
+.contact-btn {
+  margin-top: auto;
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: 1px solid #00ffff;
+  color: #00ffff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #00ffff;
+  color: #0a0f1f;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+}
+
+.location-badge {
+  margin-top: auto;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(124, 92, 255, 0.15);
+  color: #7c5cff;
+  border: 1px solid rgba(124, 92, 255, 0.3);
+}
+
 .contact-link {
   color: #00ffff;
   text-decoration: none;
@@ -296,48 +660,107 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ============================= */
-/* FOOTER */
-/* ============================= */
+/* ========================================== */
+/* 13. FOOTER                                 */
+/* ========================================== */
 footer {
   text-align: center;
   padding: 25px;
-  border-top: 1px solid rgba(0,255,255,0.1);
+  border-top: 1px solid rgba(0, 255, 255, 0.1);
   background: #0a0f1f;
   color: #a0aec0;
+  font-size: 0.9rem;
 }
 
-/* ============================= */
-/* LIGHT MODE */
-/* ============================= */
-body.light-mode{
+/* ========================================== */
+/* 14. LIGHT MODE OVERRIDES                   */
+/* ========================================== */
+body.light-mode {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-mode nav a {
+  color: #334155;
+}
+
+body.light-mode nav a:hover {
+  color: #0284c7;
+}
+
+body.light-mode .hero h1 {
+  color: #0f172a;
+}
+
+body.light-mode .hero p,
+body.light-mode .section-subtitle,
+body.light-mode .stat-card p {
+  color: #475569;
+}
+
+body.light-mode .card,
+body.light-mode .project-card,
+body.light-mode .cert-card,
+body.light-mode .testimonial-card,
+body.light-mode .contact-card {
   background: #ffffff;
-  color: #111;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
-body.light .navbar {
+body.light-mode .cert-card.patent-highlight {
+  background: linear-gradient(145deg, #ffffff, rgba(124, 92, 255, 0.05));
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+body.light-mode .project-title,
+body.light-mode .cert-title,
+body.light-mode .contact-card h3,
+body.light-mode .author-info h4 {
+  color: #0f172a;
+}
+
+body.light-mode .project-description,
+body.light-mode .cert-desc,
+body.light-mode .testimonial-text,
+body.light-mode .contact-card p {
+  color: #475569;
+}
+
+body.light-mode footer {
   background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
 }
 
-body.light nav a {
-  color: #111;
-}
-
-body.light .card {
-  background: #f4f4f4;
-  color: #111;
-}
-
-/* ============================= */
-/* RESPONSIVE */
-/* ============================= */
+/* ========================================== */
+/* 15. RESPONSIVE DESIGN                      */
+/* ========================================== */
 @media (max-width: 768px) {
-.stats-container {
-  gap: 30px;
-}
+  .hero h1 {
+    font-size: 38px;
+  }
 
-.stat-card h2 {
-  font-size: 38px;
-}
+  .stats-container {
+    gap: 30px;
+  }
+
+  .stat-card h2 {
+    font-size: 38px;
+  }
+
+  .projects-grid,
+  .cert-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 25px;
+  }
 }
